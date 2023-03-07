@@ -1,0 +1,21 @@
+.blog-image img {
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: cover;
+  width: 400px;  
+  height: 300px;
+}
+
+.individual-card {
+  border: 3px solid;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+  background-color: white;
+}
+
+.modal {
+  padding: 10px;
+}
