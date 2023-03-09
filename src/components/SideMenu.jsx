@@ -1,6 +1,6 @@
 import { Container, Nav, Navbar } from 'react-bootstrap';
 
-export function Hamburger() {
+export default function SideMenu() {
     return(
         <Navbar collapseOnSelect expand="lg">
             <Container>

@@ -1,25 +1,24 @@
 import { useState } from "react";
-import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Hamburger } from "../components/Hamburger";
-import './PostNew.css'
+import SideMenu from "../components/SideMenu.jsx";
 
 
-export default function PostNew({ setBlogs }) {
+export default function NewPost({ setBlogs }) {
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
   const [image, setImage] = useState()
   const [review, setReview] = useState("")
+  const [author, setAuthor] = useState("")
 
   function convertFile(files) {
     if (files) {
-      // picks the first file from all the files selected
+      // chooses the first file submitted
       const fileRef = files[0] || ""
-      // picks the type so that it can send the right one to the database
+      // declares 'FileType' as the type of file (.png, .jpg, .webp)
       const fileType = fileRef.type || ""
-      // sets reader as a new FileReader instance 
+      // pulls in the class (fileReader) and sets 'reader' as a new variation of 'reader'
       const reader = new FileReader()
-      // converts fileref (the rile) to a binary string
+      // reads file[0] as binary to reader
       reader.readAsBinaryString(fileRef)
       reader.onload = (ev) => {
         // convert it to base64
@@ -36,27 +35,26 @@ export default function PostNew({ setBlogs }) {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ title, description, image, review })
+      body: JSON.stringify({ title, description, image, review, author })
     })
       .then(res => res.json())
-      .then(setBlogs)
+      .then(setBlogs, setTitle(""), setDescription(""), setImage(""), setReview(""), setAuthor(""))
       .catch(console.error)
 
-    setTitle("")
-    setDescription("")
-    setImage("")
-    setReview("")
+    // setTitle("")
+    // setDescription("")
+    // setImage("")
+    // setReview("")
+    // setAuthor("")
   }
-
-
 
   return (
     <>
-      <Hamburger/>
-      <h1 className="">Submit your blog here!</h1>
+      <SideMenu/>
+      <h2>Submit your blog here!</h2>
       <Form className="form-container">
         <Form.Group>
-          <Form.Label className="blog-title">Title</Form.Label>
+          <Form.Label>Title</Form.Label>
           <Form.Control
             name="title"
             type="text"
@@ -75,9 +73,8 @@ export default function PostNew({ setBlogs }) {
             required={true}
             placeholder="Your brief thoughts here"
             value={description}
-            className="p-2 description"
-            onChange={e => setDescription(e.target.value)}
-          />
+            className="p-2 "
+            onChange={e => setDescription(e.target.value)}/>
           </Form.Group>
 
         <Form.Group>
@@ -87,25 +84,38 @@ export default function PostNew({ setBlogs }) {
             type="file"
             required={true}
             placeholder="Image that relates most to your discussion"
-            className="p-2 blog-image"
+            className="p-2"
             onChange={e => convertFile(e.target.files)}/>
         </Form.Group>
 
         <Form.Group>
-          <Form.Label>Review</Form.Label> 
+          <Form.Label>Review</Form.Label>
           <Form.Control
             name="review"
             type="text"
             required={true}
             placeholder="What are your full thoughts on this?"
             value={review}
-            className="p-2 review"
+            className="p-2"
             onChange={e => setReview(e.target.value)}/>
         </Form.Group>
 
-        <Button className="p-2 m-auto mt-2"
+        <Form.Group>
+          <Form.Label>Author</Form.Label>
+          <Form.Control
+            name="author"
+            type="text"
+            required={true}
+            placeholder="Credit yourself!"
+            value={author}
+            className="p-2"
+            onChange={e => setAuthor(e.target.value)}/>
+        </Form.Group>
+
+
+        <button className="p-2 m-auto mt-2"
           onClick={handleSubmit}>
-          Submit</Button>
+          Submit</button>
       </Form>
     </>
   )

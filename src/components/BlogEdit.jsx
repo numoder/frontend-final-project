@@ -45,7 +45,7 @@ export default function BlogEdit({ blogId, setBlogs }) {
     <>
       <Button onClick={handleShow} variant="text">
         <Image
-          src="https://www.freeiconspng.com/thumbs/edit-icon-png/edit-new-icon-22.png"
+          src="https://imgur.com/VIF8I44.png"
           width="30px"
         />
       </Button>
@@ -103,16 +103,15 @@ export default function BlogEdit({ blogId, setBlogs }) {
             onChange={e => setReview(e.target.value)}/>
         </Form.Group>
 
-          <Button className="p-2 m-auto mt-2"
-            onClick={handleEdit}
-          >
+          <button className="p-1 m-auto mt-2"
+            onClick={handleEdit}>
             Save
-          </Button>
+          </button>
         </Form>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleClose}>
+          <button onClick={handleClose} className="p-2 mt-2">
             Close
-          </Button>
+          </button>
         </Modal.Footer>
       </Modal>
     </>

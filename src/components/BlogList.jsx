@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import Image from "react-bootstrap/Image";
-import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import BlogDelete from "./BlogDelete.jsx";
-import BlogEdit from "./BlogEdit.jsx";
-import "./bloglist.css";
+import BlogEdit from "./BlogEdit";
 
 export default function BlogList({ blogs, setBlogs }) {
   const [selectedBlog, setSelectedBlog] = useState(null);
@@ -24,7 +22,7 @@ export default function BlogList({ blogs, setBlogs }) {
   return (
     <>
       {!blogs ?
-        <h1>Loading...</h1>
+        <progress max="1000" value="500"></progress>
         :
         <Container fluid>
           <Row>
@@ -32,17 +30,19 @@ export default function BlogList({ blogs, setBlogs }) {
               <Col sm={6} md={4} lg={3} key={element._id}>
                 <Card className="individual-card">
                   <Image 
-                  onClick={() => { setSelectedBlog(element); handleShow() }} src={element.image} className="blog-image" 
+                  onClick={() => {setSelectedBlog(element); handleShow() }}
+                    src={element.image}
                   />
                   <h2>{element.title}</h2>
+                  <div>
                   <BlogDelete
-                    setBlogs={setBlogs}
-                    blogId={element._id}/>
+                    blogs={blogs}
+                    setBlogs={setBlogs}/>
                   <BlogEdit
-                    setBlogs={setBlogs}
-                    blogId={element._id}/>
+                    blogs={blogs}
+                    setBlogs={setBlogs}/>
+                    </div>
                 </Card>
-
               </Col>
             ))}
           </Row>
@@ -50,19 +50,27 @@ export default function BlogList({ blogs, setBlogs }) {
       }
 
       {selectedBlog && (
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>{selectedBlog.title}</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <p>{selectedBlog.info}</p>-----<p>{selectedBlog.review}</p>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="primary" onClick={handleClose}>
-              Close
-            </Button>
-          </Modal.Footer>
-        </Modal>
+
+          <Modal show={show} onHide={handleClose} class="modal-dialog modal-fullscreen">
+            <Modal.Header closeButton>
+              <Modal.Title class="modal-title">{selectedBlog.title}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <p>{selectedBlog.info}{selectedBlog.review}</p>
+            </Modal.Body>
+            <Modal.Footer>
+            <div class="row">
+              <div class="col-3">
+                <p>made by</p>
+                <p>{selectedBlog.author}</p>
+                </div> 
+                <div class="col-8">
+              <button onClick={handleClose}>Close</button>
+                </div>
+              </div>
+
+            </Modal.Footer>
+          </Modal>
       )}
     </>
   );

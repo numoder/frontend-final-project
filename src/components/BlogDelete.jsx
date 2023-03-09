@@ -20,8 +20,8 @@ export default function BlogDelete({ setBlogs, blogId }) {
     <>
       <Button onClick={handleDelete} variant="text">
         <Image
-          src="https://www.iconpacks.net/icons/1/free-trash-icon-347-thumb.png"
-          width="30px"
+          src="https://64.media.tumblr.com/110f4e7453629571d4f6d9825031c1fc/6a99beecff145415-42/s540x810/16816e871b527ac2b0c49165dd8661f552b903b3.png"
+          width="50px"
         />
       </Button>
      
