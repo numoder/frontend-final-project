@@ -1,6 +1,5 @@
-import Button from "react-bootstrap/Button"
+import { Button } from "react-bootstrap"
 import Image from "react-bootstrap/Image"
-
 
 export default function BlogDelete({ setBlogs, blogId }) {
 
@@ -11,16 +10,28 @@ export default function BlogDelete({ setBlogs, blogId }) {
         'Content-Type': 'application/json'
       }
     })
-      .then(res => res.json())
-      .then(setBlogs)
-      .catch(console.error)
-  }
+      .then((res) => {
+        if (!res.ok) {
+          console.error("Fetch request failed");
+        }
+        // If the status is in the 200-299 range, parse the res as JSON
+        return res.json();
+      })
+      .then((data) => {
+        setBlogs(data);
+        console.log("Post was deleted.");
+      })
+      .catch((error) => {
+        console.error(error);
+        console.log("Failed to delete blog.");
+      });
+  };
 
   return (
     <>
       <Button onClick={handleDelete} variant="text">
         <Image
-          src="https://64.media.tumblr.com/110f4e7453629571d4f6d9825031c1fc/6a99beecff145415-42/s540x810/16816e871b527ac2b0c49165dd8661f552b903b3.png"
+          src="https://i.imgur.com/Tm4iOLD.png"
           width="50px"
         />
       </Button>

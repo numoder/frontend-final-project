@@ -2,18 +2,17 @@ import { Container, Nav, Navbar } from 'react-bootstrap';
 
 export default function SideMenu() {
     return(
-        <Navbar collapseOnSelect expand="lg">
-            <Container>
-                <Navbar.Brand href="home">
+        <Navbar collapseOnSelect expand='lg' sticky='top' className='header'>
+            <Container fluid>
+                <Navbar.Brand href='/'>
                     <h1 href="/" className="web-header">XPLR WRLD</h1>
                 </Navbar.Brand>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="me-auto">
-                        <Nav.Link
-                        href="create">Create</Nav.Link>
-                    </Nav>
-                </Navbar.Collapse>
+                <Nav
+                    className='me-auto'
+                    style={{ maxHeight: '100px'}}
+                    navbarScroll>
+                    <Nav.Link href="/create">Create</Nav.Link>
+                </Nav>
             </Container>
         </Navbar>
     )

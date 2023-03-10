@@ -19,7 +19,6 @@ export default function BlogCard() {
                 <img src="{element.image}" />
                   {element.description} {element.review}2222222
                 </Modal.Body>
-
                 <Modal.Footer>
                   <div class="row">
                     <div class="col-8">

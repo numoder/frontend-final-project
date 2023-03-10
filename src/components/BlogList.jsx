@@ -3,7 +3,7 @@ import { Card, Col, Container, Row } from "react-bootstrap";
 import Image from "react-bootstrap/Image";
 import Modal from "react-bootstrap/Modal";
 import BlogDelete from "./BlogDelete.jsx";
-import BlogEdit from "./BlogEdit";
+import BlogEdit from "./BlogEdit.jsx";
 
 export default function BlogList({ blogs, setBlogs }) {
   const [selectedBlog, setSelectedBlog] = useState(null);
@@ -34,13 +34,16 @@ export default function BlogList({ blogs, setBlogs }) {
                     src={element.image}
                   />
                   <h2>{element.title}</h2>
-                  <div>
+                  <div className="editandelete">
                   <BlogDelete
-                    blogs={blogs}
-                    setBlogs={setBlogs}/>
+                        setAnimes={setBlogs}
+                        blogId={element._id}
+                      />
                   <BlogEdit
-                    blogs={blogs}
-                    setBlogs={setBlogs}/>
+                      setBlogs={setBlogs}
+                      selectedBlog={selectedBlog}
+                      blogId={element._id}
+                    />
                     </div>
                 </Card>
               </Col>

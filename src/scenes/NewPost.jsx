@@ -1,7 +1,6 @@
-import { useState } from "react";
-import Form from "react-bootstrap/Form";
-import SideMenu from "../components/SideMenu.jsx";
-
+import SideMenu from "../components/SideMenu.jsx"
+import Form from "react-bootstrap/Form"
+import { useState } from "react"
 
 export default function NewPost({ setBlogs }) {
   const [title, setTitle] = useState("")
@@ -40,7 +39,7 @@ export default function NewPost({ setBlogs }) {
       .then(res => res.json())
       .then(setBlogs, setTitle(""), setDescription(""), setImage(""), setReview(""), setAuthor(""))
       .catch(console.error)
-
+      
     // setTitle("")
     // setDescription("")
     // setImage("")
@@ -51,7 +50,7 @@ export default function NewPost({ setBlogs }) {
   return (
     <>
       <SideMenu/>
-      <h2>Submit your blog here!</h2>
+      <h2 className="create-title">Submit your blog here!</h2>
       <Form className="form-container">
         <Form.Group>
           <Form.Label>Title</Form.Label>
