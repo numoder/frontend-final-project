@@ -57,24 +57,12 @@ html {
   width: 100vw;
   max-width: none;
   height: 100%;
-  margin: 0;
-
-}
-
-#modal-title {
-  background-color: red;
-  color: red;
-}
-
-.editandelete {
-  justify-content: center;
-  display: flex;
-}
-
-.create-button {
-
 }
 
 .create-title {
   text-align: center;
+}
+
+.modal img{
+  align-items: center;
 }

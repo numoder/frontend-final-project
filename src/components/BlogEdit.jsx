@@ -8,7 +8,8 @@ import Form from "react-bootstrap/Form"
 export default function BlogEdit({ blogId, setBlogs }) {
 
   const [title, setTitle] = useState("")
-  const [description, setDescription] = useState("")
+  const [rating, setRating] = useState("")
+  const [genre, setGenre] = useState("")
   const [image, setImage] = useState()
   const [review, setReview] = useState("")
   const [show, setShow] = useState(false);
@@ -35,7 +36,7 @@ export default function BlogEdit({ blogId, setBlogs }) {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ title, description, image, review })
+      body: JSON.stringify({ title, rating, genre, image, review })
     })
       .then(res => res.json())
       .then(setBlogs)
@@ -66,28 +67,44 @@ export default function BlogEdit({ blogId, setBlogs }) {
               onChange={e => setTitle(e.target.value)} />
           </Form.Group>
 
+          <Form>
+              <Form.Group>
+                <Form.Label>Rating</Form.Label>
+                <Form.Range 
+                min="0"
+                max="5"
+                onChange={e => setRating(e.target.value)}/>
+                <Form.Control
+                name="rating"
+                type="number"
+                required={true}
+                value={rating}
+                className="m-auto"/>
+              </Form.Group>
+            </Form>
+
           <Form.Group>
             <Form.Label>Image</Form.Label> 
             <Form.Control
               name="Image"
               type="file"
               required={true}
-              placeholder="Cover of the Anime"
+              placeholder="Cover of the Blog"
               className="p-2"
               onChange={e => convertFile(e.target.files)}
             />
           </Form.Group>
 
           <Form.Group>
-          <Form.Label>Description</Form.Label> 
+          <Form.Label>Genre</Form.Label> 
           <Form.Control
-            name="Description"
+            name="Genre"
             type="text"
             required={true}
             placeholder="Your brief thoughts here"
-            value={description}
+            value={genre}
             className="p-2"
-            onChange={e => setDescription(e.target.value)}
+            onChange={e => setGenre(e.target.value)}
           />
           </Form.Group>
 

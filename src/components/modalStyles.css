@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap');
+
+.modal-img {
+    filter: drop-shadow(10px solid black);
+    width: calc(100% - 10px);
+    padding-left: 10px;
+    align-content: center;
+    }
+
+.modal-title {
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 20px;
+    text-align: center;
+    border-bottom: 1px rgb(212, 212, 212) solid;
+    margin-bottom: 4px;
+    
+}
+
+.editandelete {
+    justify-content: right;
+    display: flex;
+    margin-bottom: 4px;
+    margin-right: 4px;
+}
+
+.clickable-image{
+    padding: 15px;
+}
+
+.card-album-title{
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+    width: calc(50%-30px);
+}
+
+.author-text{
+        font-size: calc(1.5rem + 1vw);
+}
+
+.rating{
+
+}
+
+.genre{
+
+}

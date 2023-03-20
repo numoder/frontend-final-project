@@ -4,10 +4,12 @@ import { useState } from "react"
 
 export default function NewPost({ setBlogs }) {
   const [title, setTitle] = useState("")
-  const [description, setDescription] = useState("")
+  const [artist, setArtist] = useState("")
+  const [genre, setGenre] = useState("")
   const [image, setImage] = useState()
   const [review, setReview] = useState("")
   const [author, setAuthor] = useState("")
+  const [rating, setRating] = useState("")
 
   function convertFile(files) {
     if (files) {
@@ -34,14 +36,16 @@ export default function NewPost({ setBlogs }) {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ title, description, image, review, author })
+      body: JSON.stringify({ title, rating, genre, image, review, author })
     })
       .then(res => res.json())
-      .then(setBlogs, setTitle(""), setDescription(""), setImage(""), setReview(""), setAuthor(""))
+      .then(setBlogs, setRating(""), setTitle(""), setArtist(""), setGenre(""), setImage(""), setReview(""), setAuthor(""))
       .catch(console.error)
       
     // setTitle("")
-    // setDescription("")
+    // setArtist("")
+    // setGenre("")
+    // setRating("")
     // setImage("")
     // setReview("")
     // setAuthor("")
@@ -50,72 +54,96 @@ export default function NewPost({ setBlogs }) {
   return (
     <>
       <SideMenu/>
-      <h2 className="create-title">Submit your blog here!</h2>
-      <Form className="form-container">
-        <Form.Group>
-          <Form.Label>Title</Form.Label>
-          <Form.Control
-            name="title"
-            type="text"
-            required={true}
-            placeholder="Name of your blog"
-            value={title}
-            className="p-2"
-            onChange={e => setTitle(e.target.value)}/>
-        </Form.Group>
+      <h2 className="create-title">Submit your review here!</h2>
+          <Form className="form-container">
+            <Form.Group>
+              <Form.Label>Title</Form.Label>
+              <Form.Control
+                name="title"
+                type="text"
+                required={true}
+                placeholder="Name of the album"
+                value={title}
+                className="p-2"
+                onChange={e => setTitle(e.target.value)}/>
+            </Form.Group>
 
-        <Form.Group>
-          <Form.Label>Description</Form.Label> 
-          <Form.Control
-            name="Description"
-            type="text"
-            required={true}
-            placeholder="Your brief thoughts here"
-            value={description}
-            className="p-2 "
-            onChange={e => setDescription(e.target.value)}/>
-          </Form.Group>
+            <Form.Group>
+              <Form.Label>Artist</Form.Label>
+              <Form.Control
+                name="artist"
+                type="text"
+                required={true}
+                placeholder="Artist name"
+                value={artist}
+                className="p-2"
+                onChange={e => setArtist(e.target.value)}/>
+            </Form.Group>
 
-        <Form.Group>
-          <Form.Label>Image</Form.Label>
-          <Form.Control
-            name="Image"
-            type="file"
-            required={true}
-            placeholder="Image that relates most to your discussion"
-            className="p-2"
-            onChange={e => convertFile(e.target.files)}/>
-        </Form.Group>
+            <Form>
+              <Form.Group>
+                <Form.Label>Rating</Form.Label>
+                <Form.Range 
+                min="0"
+                step="0.5"
+                max="5"
+                onChange={e => setRating(e.target.value)}/>
+              </Form.Group>
+            </Form>
+              {!rating
+                ? <bistar></bistar>
+                : <text>{rating} Stars</text>}
+                
+            <Form.Group>
+              <Form.Label className="mt-3">Genre</Form.Label> 
+              <Form.Control
+                name="genre"
+                type="text"
+                required={true}
+                placeholder="What category does the album fit in most?"
+                value={genre}
+                className="p-2"
+                onChange={e => setGenre(e.target.value)}/>
+              </Form.Group>
 
-        <Form.Group>
-          <Form.Label>Review</Form.Label>
-          <Form.Control
-            name="review"
-            type="text"
-            required={true}
-            placeholder="What are your full thoughts on this?"
-            value={review}
-            className="p-2"
-            onChange={e => setReview(e.target.value)}/>
-        </Form.Group>
+            <Form.Group>
+              <Form.Label>Image</Form.Label>
+              <Form.Control
+                name="Image"
+                type="file"
+                required={true}
+                placeholder="Cover"
+                className="p-2"
+                onChange={e => convertFile(e.target.files)}/>
+            </Form.Group>
 
-        <Form.Group>
-          <Form.Label>Author</Form.Label>
-          <Form.Control
-            name="author"
-            type="text"
-            required={true}
-            placeholder="Credit yourself!"
-            value={author}
-            className="p-2"
-            onChange={e => setAuthor(e.target.value)}/>
-        </Form.Group>
+            <Form.Group>
+              <Form.Label>Review</Form.Label>
+              <Form.Control
+                name="review"
+                type="text"
+                required={true}
+                placeholder="What are your full thoughts on this?"
+                value={review}
+                className="p-2"
+                onChange={e => setReview(e.target.value)}/>
+            </Form.Group>
 
-
-        <button className="p-2 m-auto mt-2"
-          onClick={handleSubmit}>
-          Submit</button>
-      </Form>
+            <Form.Group>
+              <Form.Label>Author</Form.Label>
+              <Form.Control
+                name="author"
+                type="text"
+                required={true}
+                placeholder="Credit yourself!"
+                value={author}
+                className="p-2"
+                onChange={e => setAuthor(e.target.value)}/>
+            </Form.Group>
+            <button className="p-2 m-auto mt-2"
+              onClick={handleSubmit}>
+              Submit</button>
+        </Form>
     </>
   )
 }
