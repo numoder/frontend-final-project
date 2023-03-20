@@ -1,12 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap');
 
-.modal-img {
-    filter: drop-shadow(10px solid black);
-    width: calc(100% - 10px);
-    padding-left: 10px;
-    align-content: center;
-    }
-
 .modal-title {
     font-family: 'Anonymous Pro', monospace;
     font-size: 20px;
@@ -27,6 +20,7 @@
     padding: 15px;
 }
 
+/* example: to pimp a butterfly */
 .card-album-title{
     text-transform: uppercase;
     text-align: center;
@@ -34,15 +28,14 @@
     font-weight: 700;
     width: calc(50%-30px);
 }
-
+/* example: made by: Mr. White */
 .author-text{
-        font-size: calc(1.5rem + 1vw);
+    font-size: calc(1.5rem + 1vw);
 }
 
-.rating{
-
-}
-
-.genre{
-
-}
+/* inside of modal image */
+.modal-img {
+    cursor: pointer;
+    display: block;
+    object-fit: cover;
+  }

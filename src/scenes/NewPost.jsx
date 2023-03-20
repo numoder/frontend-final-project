@@ -1,6 +1,8 @@
 import SideMenu from "../components/SideMenu.jsx"
 import Form from "react-bootstrap/Form"
 import { useState } from "react"
+import { Dropdown } from "react-bootstrap"
+import { Row } from "react-bootstrap"
 
 export default function NewPost({ setBlogs }) {
   const [title, setTitle] = useState("")
@@ -51,6 +53,11 @@ export default function NewPost({ setBlogs }) {
     // setAuthor("")
   }
 
+  const handleSelect = e => {
+    setRating(e)
+  }
+
+
   return (
     <>
       <SideMenu/>
@@ -80,20 +87,29 @@ export default function NewPost({ setBlogs }) {
                 onChange={e => setArtist(e.target.value)}/>
             </Form.Group>
 
-            <Form>
+            <Row>
               <Form.Group>
                 <Form.Label>Rating</Form.Label>
-                <Form.Range 
-                min="0"
-                step="0.5"
-                max="5"
-                onChange={e => setRating(e.target.value)}/>
+                <Dropdown onSelect={handleSelect} className>
+                  <Dropdown.Toggle variant="light" className="rating text-start">
+                    {!rating
+                      ? <p className='d-inline'>Rate it!</p>
+                      : <p className='d-inline'>{rating}</p>
+                      }
+                      <Dropdown.Menu>
+                        <Dropdown.Item eventKey='⭐️'>⭐️</Dropdown.Item>
+                        <Dropdown.Item eventKey='⭐️⭐️'>⭐️⭐️</Dropdown.Item>
+                        <Dropdown.Item eventKey='⭐️⭐️⭐️'>⭐️⭐️⭐️</Dropdown.Item>
+                        <Dropdown.Item eventKey='⭐️⭐️⭐️⭐️'>⭐️⭐️⭐️⭐️</Dropdown.Item>
+                        <Dropdown.Item eventKey='⭐️⭐️⭐️⭐️⭐️'>⭐️⭐️⭐️⭐️⭐️</Dropdown.Item>
+                      </Dropdown.Menu>
+                  </Dropdown.Toggle>
+                </Dropdown>
               </Form.Group>
-            </Form>
-              {!rating
-                ? <bistar></bistar>
-                : <text>{rating} Stars</text>}
-                
+            </Row>
+
+
+
             <Form.Group>
               <Form.Label className="mt-3">Genre</Form.Label> 
               <Form.Control

@@ -56,19 +56,19 @@ export default function BlogList({ blogs, setBlogs }) {
       }
 
       {selectedBlog && (
-      <Modal show={show} onHide={handleClose}>
-      
-        <Modal.Body key={selectedBlog._id} > 
-          <img class="img-responsive modal-img" className="modal-img"src={selectedBlog.image}/>
-          <h1 class='card-album-title'>{selectedBlog.title}</h1>
-          <p class='author-text'>Made by: {selectedBlog.author}</p>
-          <p class='rating'>⭐️{selectedBlog.rating}⭐️</p> 
-          <h3 class='genre'>Genre: {selectedBlog.genre}</h3>
-          <p>{selectedBlog.review}</p>
-          <button onClick={handleClose}>Close</button>
-        </Modal.Body>
-        
-      </Modal>
+      <div className="modal-dialog modal-fullscreen">
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Body key={selectedBlog._id} > 
+            <img class="img-responsive modal-img" className="modal-img" src={selectedBlog.image}/>
+            <h1 class='card-album-title'>{selectedBlog.title}</h1>
+            <p class='author-text'>Made by: {selectedBlog.author}</p>
+            <p class='rating'>⭐️{selectedBlog.rating}⭐️</p> 
+            <h3 class='genre'>Genre: {selectedBlog.genre}</h3>
+            <p>{selectedBlog.review}</p>
+            <button onClick={handleClose}>Close</button>
+          </Modal.Body>
+        </Modal>
+      </div>
       )}
     </>
   );

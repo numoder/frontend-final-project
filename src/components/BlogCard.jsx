@@ -13,7 +13,9 @@ export default function BlogCard() {
         : blog.map(element => (   
               <Modal show={show} onHide={handleClose} class="modal-dialog modal-fullscreen">
               <Modal.Header closeButton>
-                <Modal.Title class="album-title">{element.title}</Modal.Title>
+                <Modal.Title class="album-artist">
+                  <h1>{element.title} by {element.artist}</h1>
+                  </Modal.Title>
               </Modal.Header>
                 <Modal.Body key={element._id}> 
                 <img src={element.image} />
