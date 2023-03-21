@@ -1,25 +1,28 @@
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Col, Container, Nav, Navbar, Row } from 'react-bootstrap';
 import { useState } from 'react';
 
 export default function SideMenu() {
-    const [theme, setTheme] = useState('light');
-    const toggleTheme = () => {
-        if (theme === 'light') {
-            setTheme('dark');
-        } else {
-            setTheme('light');
-        }
-    }
+    // const [theme, setTheme] = useState('light');
+    // const toggleTheme = () => {
+    //     if (theme === 'light') {
+    //         setTheme('dark');
+    //     } else {
+    //         setTheme('light');
+    //     }
+    // }
     return(
         <Navbar collapseOnSelect expand='lg' sticky='top' className='header'>
             <Container fluid>
-                <Navbar.Brand href='/'
-                    src="/src/assets/images/logo.svg"
-                    width="30"
-                    height="30"
+                <Row>
+                <Navbar.Brand href='/'>
+                    <img
+                    src="logo.png"
+                    width="50"
+                    height="50"
                     alt="logo"
                     class="d-inline-block align-top">
-                        CHROMESTHESIA SOUND
+                        </img>
+                        <h1 className='navbar-header'>CHROMESTHESIA SOUND</h1>
                 </Navbar.Brand>
                 <Nav
                     className='me-auto'
@@ -28,6 +31,7 @@ export default function SideMenu() {
                     <Nav.Link href="/create">
                         <button>Create</button></Nav.Link>
                 </Nav>
+                </Row>
             </Container>
         </Navbar>
     )

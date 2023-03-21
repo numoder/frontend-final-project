@@ -1,5 +1,5 @@
-import { Button } from "react-bootstrap"
-import Image from "react-bootstrap/Image"
+import { Button } from "react-bootstrap";
+import { Trash3 } from "react-bootstrap-icons";
 
 export default function BlogDelete({ setBlogs, blogId }) {
 
@@ -30,12 +30,8 @@ export default function BlogDelete({ setBlogs, blogId }) {
   return (
     <>
       <Button onClick={handleDelete} variant="text">
-        <Image
-          src="https://i.imgur.com/Tm4iOLD.png"
-          width="50px"
-        />
+        <Trash3 color="#000000" size={45}/>
       </Button>
-     
     </>
   )
 }

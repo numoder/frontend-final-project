@@ -1,9 +1,6 @@
+import { Button, Modal, Form, Image } from "react-bootstrap"
+import { PencilSquare } from "react-bootstrap-icons"
 import { useState } from "react"
-import Button from "react-bootstrap/Button"
-import Modal from "react-bootstrap/Modal"
-import Image from "react-bootstrap/Image"
-import Form from "react-bootstrap/Form"
-
 
 export default function BlogEdit({ blogId, setBlogs }) {
 
@@ -45,10 +42,7 @@ export default function BlogEdit({ blogId, setBlogs }) {
   return (
     <>
       <Button onClick={handleShow} variant="text">
-        <Image
-        src="https://imgur.com/o6TNniQ.png"
-        width="50px"
-        />
+      <PencilSquare color="#000000" size={44}/>
       </Button>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

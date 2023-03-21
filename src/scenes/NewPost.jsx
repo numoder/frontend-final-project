@@ -87,7 +87,24 @@ export default function NewPost({ setBlogs }) {
                 onChange={e => setArtist(e.target.value)}/>
             </Form.Group>
 
-            <Row>
+            <Form>
+              <Row>
+                <Form.Group>
+                    <Form.Label>Rating</Form.Label>
+                    <Form.Range 
+                      min="0"
+                      step="0.5"
+                      max="5"
+                      onChange={e => setRating(e.target.value)}/>
+                  </Form.Group>
+                </Row>
+              </Form>
+                  {!rating
+                    ? <bistar></bistar>
+                    : <text>{rating} Stars</text>}
+              
+
+            {/* <Row>
               <Form.Group>
                 <Form.Label>Rating</Form.Label>
                 <Dropdown onSelect={handleSelect} className>
@@ -106,7 +123,7 @@ export default function NewPost({ setBlogs }) {
                   </Dropdown.Toggle>
                 </Dropdown>
               </Form.Group>
-            </Row>
+            </Row> */}
 
 
 

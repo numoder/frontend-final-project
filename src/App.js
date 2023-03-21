@@ -4,8 +4,8 @@ import { Route, Routes } from 'react-router-dom';
 import NewPost from './scenes/NewPost.jsx';
 import Home from './scenes/Home.jsx';
 import "xp.css/dist/XP.css";
-import './App.css';
 import "./components/modalStyles.css";
+import './App.css';
 
 
 
