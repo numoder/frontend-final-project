@@ -26,7 +26,7 @@ body {
 
 .navbar-header {
   margin-left: 5px;
-  font-size: 65px;
+  font-size: 50px;
 }
 
 .modal-title {
@@ -62,7 +62,6 @@ html {
 
 .modal-fullscreen {
   width: 100vw;
-  max-width: none;
   height: 100%;
 }
 
@@ -79,7 +78,9 @@ html {
   text-align: center;
 }
 
-/* rotating disc */
+/* 
+------------rotating disc------------
+ */
 .disc:hover {
   -webkit-animation: rotation 5s ease-in-out forwards;
   animation: rotation 5s ease-in-out forwards;
@@ -104,5 +105,27 @@ html {
   100% {
       -webkit-transform: rotate(720deg);
       transform: rotate(720deg);
+  }
+}
+
+/* ----------- loading... ---------- */
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

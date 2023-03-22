@@ -61,6 +61,7 @@ export default function NewPost({ setBlogs }) {
   return (
     <>
       <SideMenu/>
+      {/*  */}
       <h2 className="create-title">Submit your review here!</h2>
           <Form className="form-container">
             <Form.Group>

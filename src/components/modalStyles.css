@@ -13,15 +13,26 @@
     padding-top: 20px;
 }
 
+
 /* example: to pimp a butterfly */
 .card-title{
-    text-transform: uppercase;
+    display: flexbox;
+    grid-template-columns: max-content max-content 1fr;
+    grid-gap: 5px;
+    box-sizing: border-box;
+    height: 200px;
+    width: 100%;
+    background-color: #8cffa0;
+    padding: 10px;
+}
+/* example: kendrick lamar */
+.card-artist{
     text-align: center;
     font-size: 25px;
-    font-weight: 700;
-    width: calc(50%-30px);
+    width: calc(40%-20px);
 }
-/* example: made by: Mr. White */
+
+/* example: this was written by: Mr. White */
 .author-text{
     font-size: calc(1.5rem + 1vw);
 }

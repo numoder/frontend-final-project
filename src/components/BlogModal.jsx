@@ -4,7 +4,7 @@ import Image from "react-bootstrap/Image";
 import Modal from "react-bootstrap/Modal";
 import BlogDelete from "./BlogDelete.jsx";
 import BlogEdit from "./BlogEdit.jsx";
-import setBackground from "./BackgroundImage.jsx";
+import logo from '../logo.png';
 import './modalStyles.css';
 
 export default function BlogList({ blogs, setBlogs }) {
@@ -23,10 +23,10 @@ export default function BlogList({ blogs, setBlogs }) {
 
   return (
     <>
-      {!blogs ?
-        <progress class="progress-bar" max="100" value="50"></progress>
-        :
-        <Container fluid>
+      {!blogs
+      ? <img src={logo} className="App-logo" alt="spinning disc" />
+
+      : <Container fluid>
           <Row>
             {blogs.map((element) => (
               <Col sm={6} md={4} lg={3} key={element._id}>
@@ -36,6 +36,7 @@ export default function BlogList({ blogs, setBlogs }) {
                     src={element.image}
                     className="clickable-image"/>
                   <h2 class="card-title">{element.title}</h2>
+                  <h3 class="card-artist">{element.artist}</h3>
                   <div className="editandelete">
                   <BlogDelete
                         className="modal-buttons"
