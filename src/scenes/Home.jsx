@@ -1,4 +1,4 @@
-import BlogList from "../components/BlogList.jsx";
+import BlogModal from "../components/BlogModal.jsx";
 import SideMenu from "../components/SideMenu.jsx";
 import { useState } from "react";
 
@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <SideMenu />
-      <BlogList 
+      <BlogModal 
         blogs={blogs}
         setBlogs={setBlogs}/>
     </>

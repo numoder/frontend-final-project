@@ -4,6 +4,7 @@ import Image from "react-bootstrap/Image";
 import Modal from "react-bootstrap/Modal";
 import BlogDelete from "./BlogDelete.jsx";
 import BlogEdit from "./BlogEdit.jsx";
+import setBackground from "./BackgroundImage.jsx";
 import './modalStyles.css';
 
 export default function BlogList({ blogs, setBlogs }) {
@@ -33,9 +34,8 @@ export default function BlogList({ blogs, setBlogs }) {
                   <Image 
                   onClick={() => {setSelectedBlog(element); handleShow()}}
                     src={element.image}
-                    className="clickable-image"
-                  />
-                  <h2 class="modal-title">{element.title}</h2>
+                    className="clickable-image"/>
+                  <h2 class="card-title">{element.title}</h2>
                   <div className="editandelete">
                   <BlogDelete
                         className="modal-buttons"
@@ -60,10 +60,10 @@ export default function BlogList({ blogs, setBlogs }) {
         <Modal show={show} onHide={handleClose}>
           <Modal.Body key={selectedBlog._id} > 
             <img class="img-responsive modal-img" className="modal-img" src={selectedBlog.image}/>
-            <h1 class='card-album-title'>{selectedBlog.title}</h1>
-            <p class='author-text'>Made by: {selectedBlog.author}</p>
+            <h2 class='card-album-title'>{selectedBlog.title}</h2>
+            <h3 class='author-text'>Made by: {selectedBlog.author}</h3>
             <p class='rating'>⭐️{selectedBlog.rating}⭐️</p> 
-            <h3 class='genre'>Genre: {selectedBlog.genre}</h3>
+            <h4 class='genre'>Genre: {selectedBlog.genre}</h4>
             <p>{selectedBlog.review}</p>
             <button onClick={handleClose}>Close</button>
           </Modal.Body>

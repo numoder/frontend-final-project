@@ -1,27 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap');
 
-.modal-title {
-    font-family: 'Anonymous Pro', monospace;
-    font-size: 20px;
-    text-align: center;
-    border-bottom: 1px rgb(212, 212, 212) solid;
-    margin-bottom: 4px;
-    
-}
-
 .editandelete {
-    justify-content: right;
+    border-top: 1px solid darkgray;
+    justify-content: center;
     display: flex;
-    margin-bottom: 4px;
-    margin-right: 4px;
+    margin-bottom: 5px;
+    padding-top: 5px;
 }
 
 .clickable-image{
-    padding: 15px;
+    padding: 5px;
+    padding-top: 20px;
 }
 
 /* example: to pimp a butterfly */
-.card-album-title{
+.card-title{
     text-transform: uppercase;
     text-align: center;
     font-size: 25px;

@@ -1,8 +1,16 @@
+/* Planet bubble font for header */
+@font-face {
+  font-family: 'Planet Bubble';
+  src: url('./assets/fonts/PlanetBubble.TTF') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
 body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  font-family: 'Times New Roman';
+  font-family: 'Helvetica Nuev';
   background-size: cover;
   color: rgb(0, 0, 0);
   width: 100%;
@@ -12,10 +20,20 @@ body {
 .header {
   border-bottom: 2px solid rgb(200, 200, 200);
   background-color: rgb(246, 246, 246);
-  font-family: 'Helvetica Neue';
-  margin-bottom: 10px;
-  color: white;
+  font-family: 'Planet Bubble';
   text-align: center;
+}
+
+.navbar-header {
+  margin-left: 5px;
+  font-size: 65px;
+}
+
+.modal-title {
+  text-align: center;
+  border-bottom: 1px rgb(212, 212, 212) solid;
+  margin-bottom: 4px;
+  
 }
 
 html {
@@ -61,3 +79,30 @@ html {
   text-align: center;
 }
 
+/* rotating disc */
+.disc:hover {
+  -webkit-animation: rotation 5s ease-in-out forwards;
+  animation: rotation 5s ease-in-out forwards;
+}
+
+@-webkit-keyframes rotation {
+  0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+  }
+  100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+  }
+}
+
+@keyframes rotation {
+  0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+  }
+  100% {
+      -webkit-transform: rotate(720deg);
+      transform: rotate(720deg);
+  }
+}
