@@ -103,7 +103,7 @@ export default function BlogEdit({ blogId, setBlogs, currentTitle, currentRating
             name="Genre"
             type="text"
             required={true}
-            placeholder="Your brief thoughts here"
+            placeholder={currentGenre}
             value={genre}
             className="p-2"
             onChange={e => setGenre(e.target.value)}
@@ -116,7 +116,7 @@ export default function BlogEdit({ blogId, setBlogs, currentTitle, currentRating
             name="review"
             type="text"
             required={true}
-            placeholder="What are your full thoughts on this?"
+            placeholder={currentReview}
             value={review}
             className="p-2"
             onChange={e => setReview(e.target.value)}/>
@@ -134,6 +134,7 @@ export default function BlogEdit({ blogId, setBlogs, currentTitle, currentRating
           
           <button className="mt-2 m-auto"
           onClick={handleClose} >
+          Close
           </button>
         </Modal.Footer>
       </Modal>

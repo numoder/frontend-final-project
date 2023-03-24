@@ -6,6 +6,12 @@
   font-style: normal;
 }
 
+@font-face {
+  src: url('./assets/fonts/Ferrite.ttf') format('truetype');
+  font-family: 'Ferrite Core DX Display';
+  font-style: normal;
+}
+
 body {
   background-position: center;
   background-repeat: no-repeat;
