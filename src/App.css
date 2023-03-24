@@ -30,10 +30,8 @@ body {
 }
 
 .modal-title {
-  text-align: center;
   border-bottom: 1px rgb(212, 212, 212) solid;
-  margin-bottom: 4px;
-  
+  margin-bottom: 4px;  
 }
 
 html {

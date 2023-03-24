@@ -1,8 +1,8 @@
 import { Button, Modal, Form, Image } from "react-bootstrap"
 import { PencilSquare } from "react-bootstrap-icons"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
-export default function BlogEdit({ blogId, setBlogs }) {
+export default function BlogEdit({ blogId, setBlogs, currentTitle, currentRating, currentGenre, currentReview, currentImage }) {
 
   const [title, setTitle] = useState("")
   const [rating, setRating] = useState("")
@@ -10,6 +10,14 @@ export default function BlogEdit({ blogId, setBlogs }) {
   const [image, setImage] = useState()
   const [review, setReview] = useState("")
   const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    setTitle(currentTitle)
+    setRating(currentRating)
+    setGenre(currentGenre)
+    setImage(currentImage)
+    setReview(currentReview)
+  }, [])
 
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
@@ -55,7 +63,7 @@ export default function BlogEdit({ blogId, setBlogs }) {
               name="title"
               type="text"
               required={true}
-              placeholder="Name of your blog"
+              placeholder={currentTitle}
               value={title}
               className="p-2"
               onChange={e => setTitle(e.target.value)} />
@@ -83,7 +91,7 @@ export default function BlogEdit({ blogId, setBlogs }) {
               name="Image"
               type="file"
               required={true}
-              placeholder="Cover of the Blog"
+              placeholder={currentImage}
               className="p-2"
               onChange={e => convertFile(e.target.files)}
             />

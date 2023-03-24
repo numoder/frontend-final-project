@@ -60,7 +60,7 @@ export default function BlogList({ blogs, setBlogs }) {
       <div className="modal-dialog modal-fullscreen">
         <Modal show={show} onHide={handleClose}>
           <Modal.Body key={selectedBlog._id} > 
-            <img class="img-responsive modal-img" className="modal-img" src={selectedBlog.image}/>
+            <img class="img-responsive modal-img" src={selectedBlog.image}/>
             <h2 class='card-album-title'>{selectedBlog.title}</h2>
             <h3 class='author-text'>Made by: {selectedBlog.author}</h3>
             <p class='rating'>⭐️{selectedBlog.rating}⭐️</p> 
