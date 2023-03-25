@@ -61,9 +61,9 @@ export default function BlogList({ blogs, setBlogs }) {
         <Modal show={show} onHide={handleClose}>
           <Modal.Body key={selectedBlog._id} > 
             <img class="img-responsive modal-img" src={selectedBlog.image}/>
-            <h2 class='card-album-title'>{selectedBlog.title}</h2>
+            <h2 class='modal-album-title'>{selectedBlog.title}</h2>
             <h3 class='author-text'>Made by: {selectedBlog.author}</h3>
-            <p class='rating'>⭐️{selectedBlog.rating}⭐️</p> 
+            <p class='rating'>{selectedBlog.rating}/5</p> 
             <h4 class='genre'>Genre: {selectedBlog.genre}</h4>
             <p>{selectedBlog.review}</p>
             <button onClick={handleClose}>Close</button>

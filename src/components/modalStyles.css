@@ -1,31 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap');
-
 .editandelete {
-    border-top: 1px solid darkgray;
     justify-content: center;
     display: flex;
+    border-top: 1px solid darkgray;
     margin-bottom: 5px;
     padding-top: 5px;
 }
 
 .clickable-image{
+    cursor: pointer;
     padding: 5px;
     padding-top: 20px;
 }
 
-
 /* example: to pimp a butterfly */
 .card-title{
+    background-color: #e1e1e1;
+    font-family: 'Ferrite Core DX';
+    font-size: 22.5px;
+    text-transform: uppercase;
     text-align: center;
     width: 100%;
-    background-color: #e1e1e1;
     padding: 10px;
 }
 /* example: kendrick lamar */
 .card-artist{
+    background-color: #f9f9f9;
+    font-family: 'Ferrite Core DX';
+    font-size: 17.5px;
+    text-transform: lowercase;
     text-align: center;
-    font-size: 25px;
     width: calc(40%-20px);
+    padding: 10px;
 }
 
 /* example: this was written by: Mr. White */

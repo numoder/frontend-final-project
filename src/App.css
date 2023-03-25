@@ -1,9 +1,9 @@
 /* Planet bubble font for header */
 @font-face {
-  font-family: 'Planet Bubble';
   src: url('./assets/fonts/PlanetBubble.TTF') format('truetype');
-  font-weight: 700;
+  font-family: 'Planet Bubble';
   font-style: normal;
+  font-weight: 700;
 }
 
 @font-face {
@@ -37,7 +37,7 @@ body {
 
 .modal-title {
   border-bottom: 1px rgb(212, 212, 212) solid;
-  margin-bottom: 4px;  
+  margin-bottom: 4px; 
 }
 
 html {
