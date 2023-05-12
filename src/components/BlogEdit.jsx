@@ -2,6 +2,7 @@ import { Button, Modal, Form, Image } from "react-bootstrap"
 import { PencilSquare } from "react-bootstrap-icons"
 import { useState, useEffect } from "react"
 
+
 export default function BlogEdit({ blogId, setBlogs, currentTitle, currentRating, currentGenre, currentReview, currentImage }) {
 
   const [title, setTitle] = useState("")
@@ -18,6 +19,12 @@ export default function BlogEdit({ blogId, setBlogs, currentTitle, currentRating
     setImage(currentImage)
     setReview(currentReview)
   }, [])
+
+  function CloseAndSave() {
+    handleClose();
+    handleEdit();
+  }
+  
 
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
@@ -125,17 +132,13 @@ export default function BlogEdit({ blogId, setBlogs, currentTitle, currentRating
           </Form>
         <Modal.Footer>
           <button className="p-1 m-auto mt-2"
-            onClick={handleEdit}>
+            onClick={CloseAndSave}>
               <Image
             src="https://imgur.com/nW4YxId.png"
             width="23px"
             />
           </button>
-          
-          <button className="mt-2 m-auto"
-          onClick={handleClose} >
-          Close
-          </button>
+
         </Modal.Footer>
       </Modal>
     </>

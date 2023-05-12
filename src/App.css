@@ -18,6 +18,8 @@ body {
   background-attachment: fixed;
   font-family: 'Helvetica Nuev';
   background-size: cover;
+  background: rgb(40,0,105);
+  background: linear-gradient(0deg, rgba(40,0,105,1) 25%, rgba(48,62,93,1) 89%);
   color: rgb(0, 0, 0);
   width: 100%;
   height: 100vh;
@@ -25,14 +27,16 @@ body {
 
 .header {
   border-bottom: 2px solid rgb(200, 200, 200);
-  background-color: rgb(246, 246, 246);
+  background-color: rgb(39, 2, 67);
   font-family: 'Planet Bubble';
   text-align: center;
 }
 
 .navbar-header {
-  margin-left: 5px;
+  color: aliceblue;
+  margin-left: 20px;
   font-size: 50px;
+  font-size: 72px;
 }
 
 .modal-title {

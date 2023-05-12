@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import react, { useState } from 'react';
+import { useState, React } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import NewPost from './scenes/NewPost.jsx';
 import Home from './scenes/Home.jsx';
@@ -11,10 +11,9 @@ import './App.css';
 
 function App() {
   // for dark mode
-  const [theme, setTheme] = useState('light');
   return (
     <>
-    <div className={`App ${theme}`}> {/*theme*/}
+    <div> {/*theme*/}
       <Routes>
         <Route path='create' element={<NewPost />}></Route>
         <Route path='home' element={<Home />}></Route>

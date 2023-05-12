@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
+import { useEffect, useState } from "react";
 import Image from "react-bootstrap/Image";
 import Modal from "react-bootstrap/Modal";
 import BlogDelete from "./BlogDelete.jsx";
@@ -25,7 +25,6 @@ export default function BlogList({ blogs, setBlogs }) {
     <>
       {!blogs
       ? <img src={logo} className="App-logo" alt="spinning disc" />
-
       : <Container fluid>
           <Row>
             {blogs.map((element) => (
@@ -41,8 +40,7 @@ export default function BlogList({ blogs, setBlogs }) {
                   <BlogDelete
                         className="modal-buttons"
                         setBlogs={setBlogs}
-                        blogId={element._id}
-                      />
+                        blogId={element._id}/>
                   <BlogEdit
                     className="modal-buttons"
                     setBlogs={setBlogs}

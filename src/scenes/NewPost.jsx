@@ -30,7 +30,6 @@ export default function NewPost({ setBlogs }) {
     }
   }
 
-
   const handleSubmit = (e) => {
     e.preventDefault()
     fetch("https://final-project-backend-am.web.app/blog", {
@@ -41,9 +40,11 @@ export default function NewPost({ setBlogs }) {
       body: JSON.stringify({ title, rating, genre, image, review, author })
     })
       .then(res => res.json())
+      // sets each field to empty
       .then(setBlogs, setRating(""), setTitle(""), setArtist(""), setGenre(""), setImage(""), setReview(""), setAuthor(""))
+      // catches any error
       .catch(console.error)
-      
+
     // setTitle("")
     // setArtist("")
     // setGenre("")
@@ -53,9 +54,9 @@ export default function NewPost({ setBlogs }) {
     // setAuthor("")
   }
 
-  const handleSelect = e => {
-    setRating(e)
-  }
+  // const handleSelect = e => {
+  //   setRating(e)
+  // }
 
 
   return (
@@ -67,7 +68,7 @@ export default function NewPost({ setBlogs }) {
             <Form.Group>
               <Form.Label>Title</Form.Label>
               <Form.Control
-                name="title"
+                name="title" 
                 type="text"
                 required={true}
                 placeholder="Name of the album"
@@ -125,8 +126,6 @@ export default function NewPost({ setBlogs }) {
                 </Dropdown>
               </Form.Group>
             </Row> */}
-
-
 
             <Form.Group>
               <Form.Label className="mt-3">Genre</Form.Label> 
