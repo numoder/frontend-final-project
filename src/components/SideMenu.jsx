@@ -1,5 +1,4 @@
 import { Container, Nav, Navbar, Row } from 'react-bootstrap';
-import { Plus } from 'react-bootstrap-icons';
 
 export default function SideMenu() {
     return(
@@ -12,12 +11,12 @@ export default function SideMenu() {
                         width="75"
                         height="75"
                         alt="compact disc"
-                        class='d-inline-block disc'/>
+                        className='disc'/>
                         <p class='navbar-header d-inline-block'>CHROMESTHESIA</p>
                     </Navbar.Brand>
                 </Row>
+                
                 <Row xs={4}>
-
                     <Nav
                         className='me-auto'
                         style={{ maxHeight: '100px'}}

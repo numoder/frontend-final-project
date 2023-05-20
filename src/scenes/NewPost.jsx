@@ -1,7 +1,6 @@
 import SideMenu from "../components/SideMenu.jsx"
 import Form from "react-bootstrap/Form"
 import { useState } from "react"
-import { Dropdown } from "react-bootstrap"
 import { Row } from "react-bootstrap"
 
 export default function NewPost({ setBlogs }) {
@@ -104,9 +103,8 @@ export default function NewPost({ setBlogs }) {
                   {!rating
                     ? <bistar></bistar>
                     : <text>{rating} Stars</text>}
-              
 
-            {/* <Row>
+            <Row>
               <Form.Group>
                 <Form.Label>Rating</Form.Label>
                 <Dropdown onSelect={handleSelect} className>
@@ -125,7 +123,7 @@ export default function NewPost({ setBlogs }) {
                   </Dropdown.Toggle>
                 </Dropdown>
               </Form.Group>
-            </Row> */}
+            </Row>
 
             <Form.Group>
               <Form.Label className="mt-3">Genre</Form.Label> 

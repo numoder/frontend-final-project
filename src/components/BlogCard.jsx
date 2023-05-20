@@ -23,7 +23,7 @@ export default function BlogCard() {
               </Modal.Title>
             </Modal.Header>
             <Modal.Body key={element._id}>
-              <img src={element.image} />
+              <img className="modal-image" src={element.image} />
               {element.genre} {element.review}
             </Modal.Body>
             <Modal.Footer>
